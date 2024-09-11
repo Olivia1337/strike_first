@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import PricesPage from "./pages/PricesPage";
+import Schedule from "./pages/Schedule";
+import ContactPage from "./pages/ContactPage";
+import ShopPage from "./pages/ShopPage";
+import FaqPage from "./pages/FaqPage";
+import MemberPage from "./pages/MemberPage";
+import ScrollToTop from "./components/ScrollToTop"; // Import ScrollToTop
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router className="App">
+      <ScrollToTop className="App" />
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/prices" element={<PricesPage />} />
+        <Route path="/schedule" element={<Schedule />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/member" element={<MemberPage />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
