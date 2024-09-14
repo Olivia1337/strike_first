@@ -17,7 +17,7 @@ function EquipmentCard({ img, text, title }) {
         <img
           src={img}
           className="object-cover h-40 w-auto relative z-10"
-          alt={`Image of ${title}`}
+          alt={title}
         />
       </div>
       <p className="font-text text-[1em] text-stone-900 italic text-center w-2/3">

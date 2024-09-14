@@ -42,7 +42,7 @@ function ContactPage() {
       </p>
 
       <section className="text-center mt-4">
-        <h2 className="text-[2em] font-header" role="heading" bg-stone-900="2">
+        <h2 className="text-[2em] font-header" bg-stone-900="2">
           Follow Us
         </h2>
         <div
