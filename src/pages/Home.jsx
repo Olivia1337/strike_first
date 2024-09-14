@@ -6,12 +6,12 @@ import Trainers from "../components/Trainers";
 
 export default function Home() {
   return (
-    <div className="h-auto">
+    <main>
       <Hero />
       <Classes />
       <About />
       <Prices />
       <Trainers />
-    </div>
+    </main>
   );
 }

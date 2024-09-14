@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import InfoText from "../components/InfoText";
 
 const classes = {
@@ -20,87 +20,56 @@ const classes = {
     { id: 8, title: "Women's Class", time: "19:00-20:15", trainer: "Mia" },
   ],
   Wednesday: [
-    {
-      id: 9,
-      title: "Lunch Class (Mixed)",
-      time: "12:00-13:00",
-      trainer: "Alex/Chris",
-    },
+    { id: 9, title: "Morning Muay Thai", time: "07:00-08:00", trainer: "John" },
     {
       id: 10,
-      title: "Beginner Class",
-      time: "16:00-17:15",
-      trainer: "Sophie/Alex",
+      title: "Lunch Class (Mixed)",
+      time: "12:00-13:00",
+      trainer: "Alex",
     },
-    { id: 11, title: "Advanced", time: "17:30-18:45", trainer: "James" },
-    {
-      id: 12,
-      title: "Mixed Class",
-      time: "19:00-20:15",
-      trainer: "Liam/Emma/Noah",
-    },
+    { id: 11, title: "Intermediate", time: "16:00-17:15", trainer: "Emma" },
+    { id: 12, title: "Advanced", time: "17:30-18:45", trainer: "Michael" },
+    { id: 13, title: "Mixed Class", time: "19:00-20:15", trainer: "Olivia" },
   ],
   Thursday: [
-    {
-      id: 13,
-      title: "Morning Muay Thai",
-      time: "07:00-08:00",
-      trainer: "John",
-    },
-    {
-      id: 14,
-      title: "Women's Class",
-      time: "16:00-17:15",
-      trainer: "Mia",
-    },
-    { id: 15, title: "Advanced", time: "17:30-18:45", trainer: "Ethan" },
-    { id: 16, title: "Mixed Class", time: "19:00-20:15", trainer: "Sophia" },
+    { id: 14, title: "Beginner Class", time: "16:00-17:15", trainer: "Chris" },
+    { id: 15, title: "Women's Class", time: "17:30-18:45", trainer: "Jordan" },
   ],
   Friday: [
     {
-      id: 17,
-      title: "Lunch Class (Mixed)",
-      time: "12:00-13:00",
-      trainer: "Alex/Chris",
+      id: 16,
+      title: "Morning Muay Thai",
+      time: "07:00-08:00",
+      trainer: "Alex",
     },
-    { id: 18, title: "Mixed Class", time: "17:00-18:30", trainer: "Ryan" },
+    { id: 17, title: "Mixed Class", time: "12:00-13:00", trainer: "Chris" },
+    { id: 18, title: "Childrens Class", time: "13:00-13:45", trainer: "Chris" },
   ],
   Saturday: [
-    { id: 19, title: "Mixed Class", time: "11:00-12:30", trainer: "Emily" },
-    {
-      id: 20,
-      title: "Sparring",
-      time: "12:30-13:50",
-      trainer: "Open Sparring for Everyone",
-    },
-    { id: 21, title: "Childrens Class", time: "12:00-13:00", trainer: "Liam" },
+    { id: 19, title: "Mixed Class", time: "10:00-11:30", trainer: "Emma" },
+    { id: 20, title: "Childrens Class", time: "13:00-13:45", trainer: "Chris" },
   ],
   Sunday: [
-    {
-      id: 22,
-      title: "Mixed Class",
-      time: "11:00-12:30",
-      trainer: "Lucas/Sophia",
-    },
-    {
-      id: 23,
-      title: "Sparring/Clinch",
-      time: "12:30-13:50",
-      trainer: "John/Lucas",
-    },
-    { id: 24, title: "Children's Class", time: "12:00-13:00", trainer: "Liam" },
+    { id: 12, title: "Advanced", time: "12:30-13:45", trainer: "Michael" },
+    { id: 13, title: "Mixed Class", time: "14:00-15:15", trainer: "Olivia" },
   ],
 };
 
 function Schedule() {
-  return (
-    <div className="relative w-full min-h-screen bg-stone-200 p-4 md:p-8 flex flex-col items-center ">
-      <div className="text-stone-800 mb-10 text-center pt-[10%]">
-        <h1 className="text-[5em] font-header text-center">SCHEDULE</h1>
-      </div>
+  const [selectedDay, setSelectedDay] = useState("Monday");
 
-      {/* Schedule grid */}
-      <div className=" grid grid-cols-1 md:grid-cols-7 gap-2 w-8/10 text-center text-bg-stone-800 border-b-2 border-stone-800">
+  const currentClasses = classes[selectedDay] || [];
+
+  return (
+    <main className="relative w-full min-h-screen bg-stone-200 pt-[25%] md:pt-[0] md:p-8 flex flex-col items-center justify-center">
+      <header className="text-stone-800 mb-10 text-center pt-[10%]">
+        <h1 className="text-[3em] md:text-[5em] font-header text-center">
+          SCHEDULE
+        </h1>
+      </header>
+
+      {/* Schedule grid for larger screens */}
+      <nav className="hidden md:grid grid-cols-1 md:grid-cols-7 gap-2 w-8/10 text-center text-bg-stone-800">
         {[
           "Monday",
           "Tuesday",
@@ -110,39 +79,89 @@ function Schedule() {
           "Saturday",
           "Sunday",
         ].map((day) => (
-          <div
+          <button
             key={day}
-            className="font-bold text-stone-200 bg-stone-800 p-2 rounded-lg hidden md:block"
+            onClick={() => setSelectedDay(day)}
+            aria-label={`Select ${day}`}
+            className={`font-bold p-2 rounded-lg transition-all duration-300 ease-in-out ${
+              selectedDay === day
+                ? "bg-orange-500 text-white"
+                : "bg-stone-800 text-stone-200"
+            }`}
           >
             {day}
-          </div>
+          </button>
         ))}
+      </nav>
 
-        {/* Daily classes */}
-        {Object.entries(classes).map(([day, classList]) => (
-          <div key={day} className="flex flex-col gap-2 p-2 rounded-lg mb-5">
-            {/* Day label for small screens */}
-            <div className=" font-bold p-2 rounded-lg md:hidden text-center">
+      {/* Classes for the selected day */}
+      <section className="hidden md:flex flex-col justify-center items-center gap-2 p-2 rounded-lg mb-5 w-full">
+        {currentClasses.length > 0 ? (
+          currentClasses.map(({ id, title, time, trainer }) => (
+            <article
+              key={id}
+              className="bg-white shadow-lg p-2 rounded-lg text-sm md:w-[20rem] flex flex-col justify-center items-center"
+            >
+              <h2 className="font-bold text-lg text-stone-800">{title}</h2>
+              <p className="text-base my-2 text-stone-800">{time}</p>
+              <p className="text-sm italic text-stone-800">{trainer}</p>
+            </article>
+          ))
+        ) : (
+          <p className="text-stone-800">
+            No classes available for {selectedDay}
+          </p>
+        )}
+      </section>
+
+      {/* Dropdown for mobile view */}
+      <section className="md:hidden w-full mb-2">
+        <label htmlFor="day-selector" className="sr-only">
+          Select a day
+        </label>
+        <select
+          id="day-selector"
+          onChange={(e) => setSelectedDay(e.target.value)}
+          value={selectedDay}
+          className="w-full p-2 rounded-lg bg-stone-800 text-stone-200 font-bold"
+        >
+          {Object.keys(classes).map((day) => (
+            <option key={day} value={day}>
               {day}
-            </div>
-            {classList.map(({ id, title, time, trainer }) => (
-              <div
+            </option>
+          ))}
+        </select>
+        {/* Classes for selected day in mobile */}
+        <div className="flex flex-col gap-2 p-2 rounded-lg mb-5 w-full">
+          {currentClasses.length > 0 ? (
+            currentClasses.map(({ id, title, time, trainer }) => (
+              <article
                 key={id}
-                className="bg-white shadow-lg p-2 rounded-lg text-sm"
+                className="bg-white shadow-lg p-2 rounded-lg text-sm flex flex-col justify-center items-center"
               >
-                <div className="font-bold text-lg text-stone-800">{title}</div>
-                <div className="text-base my-2 text-stone-800">{time}</div>
-                <div className="text-sm italic text-stone-800">{trainer}</div>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-      <p className="text-[1em] font-text text-stone-800 mb-[5rem] mt-[1rem]">
+                <h2 className="font-bold text-lg text-stone-800">{title}</h2>
+                <p className="text-base my-2 text-stone-800">{time}</p>
+                <p className="text-sm italic text-stone-800">{trainer}</p>
+              </article>
+            ))
+          ) : (
+            <p className="text-stone-800">
+              No classes available for {selectedDay}
+            </p>
+          )}
+        </div>
+      </section>
+
+      <p className="text-[1em] font-text text-stone-800 mb-[2rem] mt-[1rem]">
         Subject to change for certain times & instructors. Information is
         continuously updated here on our website and on our social media.
       </p>
-      <div>
+
+      {/* InfoText components */}
+      <section aria-labelledby="info-texts">
+        <h2 id="info-texts" className="sr-only">
+          Class Descriptions
+        </h2>
         <InfoText
           title={"Beginner Class"}
           text={
@@ -191,8 +210,8 @@ function Schedule() {
             "A term pass for ALL DAYS is required to attend this class. For those who want to learn and master/develop their clinch skills."
           }
         />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 

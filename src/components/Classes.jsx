@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function Classes() {
   return (
-    <div className="relative w-full p-[5%] bg-stone-200 justify-center ">
-      <div className="flex justify-center gap-4">
+    <section className="relative w-full p-[5%] bg-stone-200">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-4">
         <ClassesCard
           icon={GiBoxingGlove}
           title={"Mixed Classes"}
@@ -32,13 +32,13 @@ function Classes() {
       </div>
 
       <div className="flex justify-center">
-        <Link to="/schedule">
-          <button className="text-[1.2em] bg-stone-900 text-stone-200 font-text font-semibold py-2 px-4 rounded mt-5 transition-colors duration-300 hover:bg-orange-600 ">
+        <Link to="/schedule" aria-label="View our full class schedule">
+          <button className="text-[1.2em] bg-stone-900 text-stone-200 font-text font-semibold py-2 px-4 rounded mt-5 transition-colors duration-300 hover:bg-orange-600">
             See all our classes
           </button>
         </Link>
       </div>
-    </div>
+    </section>
   );
 }
 

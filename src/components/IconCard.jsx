@@ -3,10 +3,10 @@ import React from "react";
 function IconCard({ icon: Icon, title, text }) {
   return (
     <div className="items-center bg-white text-stone-900 p-6 rounded-lg shadow-sm flex flex-col">
-      <Icon size={40} />
-      <p className="text-[1.5em] font-bold font-text text-center mt-[1rem]">
+      <Icon size={40} aria-hidden="true" />
+      <h2 className="text-[1.5em] font-bold font-text text-center mt-[1rem]">
         {title}
-      </p>
+      </h2>
       <p
         className="text-[1em] font-bold font-text text-center mt-[1rem]"
         dangerouslySetInnerHTML={{ __html: text }}

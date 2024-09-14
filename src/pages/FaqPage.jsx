@@ -10,37 +10,43 @@ import {
   FaMedal,
 } from "react-icons/fa6";
 import { RiBoxingFill } from "react-icons/ri";
-import { GiBoxingGloveSurprise, GiBoxingRing } from "react-icons/gi";
+import { GiBoxingGloveSurprise } from "react-icons/gi";
 
 function FaqPage() {
   return (
-    <div className="relative w-full h-full bg-stone-200 p-[10%] flex flex-col items-center">
-      <div className="text-stone-900 ">
-        <h1 className="text-[5em] font-header text-center">
+    <main className="relative w-full h-full bg-stone-200 pt-[30%] md:pt-[10%] pb-[5%] flex flex-col items-center">
+      <section className="text-stone-900">
+        <h1 className="text-[3em] md:text-[5em] font-header text-center">
           FREQUENT QUESTIONS
         </h1>
-      </div>
-      <p className="mb-[1rem] text-[1em] font-text mx-auto text-center text-stone-900 w-2/3">
+      </section>
+      <p className="mb-[1rem] text-[1em] font-text mx-auto text-center text-stone-900 md:w-[80%] md:w-2/3">
         Here you will find answers to some of the most common questions. <br />
         If you have any other questions, feel free to{" "}
-        <a href="/contact" class="text-orange-600 underline">
+        <a
+          href="/contact"
+          className="text-orange-600 underline"
+          aria-label="Contact us"
+        >
           contact us
         </a>
       </p>
-      <p className="font-bold mt-[1rem] text-[1.5em] font-text mx-auto text-center text-stone-900 w-2/3"></p>
-      <div className="grid grid-cols-2 gap-4 w-[50%]">
+      <section className="font-bold mt-[1rem] text-[1.5em] font-text mx-auto text-center text-stone-900">
+        {/* No content to display here */}
+      </section>
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-4 w-[90%] md:w-[80%] w-[50%]">
         <IconCard
           icon={FaAddressCard}
           title={"How do I become a member?"}
           text={
-            'You can sign up <a href="/member" class="text-orange-600 underline">here</a> on our website or visit our reception, which is open about 30 minutes before each class (see the schedule).'
+            'You can sign up <a href="/member" className="text-orange-600 underline" aria-label="Sign up">here</a> on our website or visit our reception, which is open about 30 minutes before each class (see the schedule).'
           }
         />
         <IconCard
           icon={FaMoneyCheckDollar}
           title={"What does it cost?"}
           text={
-            'We offer competitive pricing to make our world-class training accessible to everyone. Whether you are a beginner or a seasoned fighter, <a href="/prices" class="text-orange-600 underline">we have a membership plan</a> that fits your needs.'
+            'We offer competitive pricing to make our world-class training accessible to everyone. Whether you are a beginner or a seasoned fighter, <a href="/prices" className="text-orange-600 underline" aria-label="Membership plans">we have a membership plan</a> that fits your needs.'
           }
         />
         <IconCard
@@ -49,7 +55,7 @@ function FaqPage() {
             "Do I need to pre-register for trial training or to participate in training?"
           }
           text={
-            'No, just check our  <a href="/schedule" class="text-orange-600 underline"> training schedule</a> and show up when it suits you! If the number of participants exceeds the available space, members with a pro-card will have priority.'
+            'No, just check our <a href="/schedule" className="text-orange-600 underline" aria-label="Training schedule">training schedule</a> and show up when it suits you! If the number of participants exceeds the available space, members with a pro-card will have priority.'
           }
         />
         <IconCard
@@ -70,7 +76,7 @@ function FaqPage() {
           icon={RiBoxingFill}
           title={"What equipment do I need?"}
           text={
-            'We recommend personal equipment once you know you want to commit. Initially, this means gloves and shin guards. For sparring, more protection is required: mouthguards and, for example, groin protection and knee guards are preferred. We have everything you need in our <a href="/shop" class="text-orange-600 underline"> shop</a> which is open in connection with each class.'
+            'We recommend personal equipment once you know you want to commit. Initially, this means gloves and shin guards. For sparring, more protection is required: mouthguards and, for example, groin protection and knee guards are preferred. We have everything you need in our <a href="/shop" className="text-orange-600 underline" aria-label="Shop">shop</a> which is open in connection with each class.'
           }
         />
         <IconCard
@@ -94,8 +100,8 @@ function FaqPage() {
             "Muay Thai is originally an ancient martial art. Today, it’s much more refined, and martial arts in general have become a popular sport for all ages and levels. Injuries can happen, but fortunately, they are rare. As a beginner, you won’t spar immediately - you’ll train on pads first. Ensure you have the right gear to minimize injury risks. If you have any concerns or existing injuries, consult with us so we can help you adjust your training."
           }
         />
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
 
