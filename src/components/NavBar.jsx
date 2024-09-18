@@ -28,6 +28,10 @@ function NavBar() {
     setSmallScreenMenu(!smallScreenMenu); // Toggle menu
   };
 
+  const handleLinkClick = () => {
+    setSmallScreenMenu(false); // Close the menu after clicking a link
+  };
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 768) {
@@ -87,6 +91,7 @@ function NavBar() {
             to="/"
             className="hover:text-gray-400"
             aria-label="Navigate to home page"
+            onClick={handleLinkClick} // Close menu after clicking a link
           >
             Home
           </Link>
@@ -94,6 +99,7 @@ function NavBar() {
             to="/prices"
             className="hover:text-gray-400"
             aria-label="Navigate to prices page"
+            onClick={handleLinkClick} // Close menu after clicking a link
           >
             Prices
           </Link>
@@ -101,6 +107,7 @@ function NavBar() {
             to="/schedule"
             className="hover:text-gray-400"
             aria-label="Navigate to schedule page"
+            onClick={handleLinkClick} // Close menu after clicking a link
           >
             Schedule
           </Link>
@@ -108,6 +115,7 @@ function NavBar() {
             to="/member"
             className="hover:text-gray-400"
             aria-label="Navigate to sign up page"
+            onClick={handleLinkClick} // Close menu after clicking a link
           >
             Sign Up
           </Link>
@@ -115,6 +123,7 @@ function NavBar() {
             to="/contact"
             className="hover:text-gray-400"
             aria-label="Navigate to contact us page"
+            onClick={handleLinkClick} // Close menu after clicking a link
           >
             Contact Us
           </Link>
@@ -130,6 +139,7 @@ function NavBar() {
                   to="/shop"
                   className="block rounded-lg py-2 px-3 transition hover:bg-white/5"
                   aria-label="Navigate to shop page"
+                  onClick={handleLinkClick} // Close menu after clicking a link
                 >
                   <p className="font-semibold text-stone-200">Equipment</p>
                 </Link>
@@ -138,6 +148,7 @@ function NavBar() {
                   to="/faq"
                   className="block rounded-lg py-2 px-3 transition hover:bg-white/5"
                   aria-label="Navigate to FAQ page"
+                  onClick={handleLinkClick} // Close menu after clicking a link
                 >
                   <p className="font-semibold text-stone-200">FAQ</p>
                 </Link>
