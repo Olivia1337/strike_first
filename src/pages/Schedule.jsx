@@ -188,9 +188,7 @@ function Schedule() {
         />
         <InfoText
           title={"Children's Class"}
-          text={
-            "For children aged approximately 6-11 years. For more information, please contact the responsible instructor Liam: liam@example.com / 070-123 45 67."
-          }
+          text={"For children aged approximately 6-11 years."}
         />
         <InfoText
           title={"Morning Muay Thai"}
