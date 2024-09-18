@@ -61,7 +61,7 @@ function Schedule() {
   const currentClasses = classes[selectedDay] || [];
 
   return (
-    <main className="relative w-full min-h-screen bg-stone-200 pt-[25%] md:pt-[0] md:p-8 flex flex-col items-center justify-center">
+    <main className="relative w-full min-h-screen bg-stone-200 pt-[25%] md:pt-[15%] lg:pt-[0%] md:p-8 flex flex-col items-center justify-center">
       <header className="text-stone-800 mb-10 text-center pt-[10%]">
         <h1 className="text-[3em] md:text-[5em] font-header text-center">
           SCHEDULE

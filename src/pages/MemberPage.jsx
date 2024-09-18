@@ -62,7 +62,7 @@ function MemberPage() {
   };
 
   return (
-    <main className="relative w-full h-screen bg-stone-200 p-[10%] flex flex-col items-center justify-center">
+    <main className="relative w-full h-screen bg-stone-200 p-[10%] md:pt-[15%] flex flex-col items-center justify-center">
       <header className="text-stone-900 text-center mb-10">
         <h1 className="text-[3em] md:text-[5em] font-header">SIGN UP TODAY</h1>
       </header>

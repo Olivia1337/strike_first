@@ -3,7 +3,7 @@ import PriceCard from "../components/PriceCard";
 
 function PricesPage() {
   return (
-    <main className="relative w-full h-full bg-stone-200 pt-[30%] md:pt-[10%] pb-[5%] flex flex-col items-center">
+    <main className="relative w-full h-full bg-stone-200 pt-[30%] md:pt-[20%] lg:pt-[10%] pb-[5%] flex flex-col items-center">
       <header className="text-stone-900 text-center mb-10">
         <h1 className="text-[3em] md:text-[5em] font-header">PRICES</h1>
       </header>
